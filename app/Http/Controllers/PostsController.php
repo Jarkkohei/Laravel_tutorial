@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Post;
+
+//  For w/o Eloquent usage.
+use DB; 
 
 class PostsController extends Controller
 {
@@ -13,7 +17,24 @@ class PostsController extends Controller
      */
     public function index()
     {
-        //
+        //  Fetch all posts
+        //$posts = Post::all();
+
+        //  Fetch all posts with the title of "Post Two".
+        //$posts = Post::where('title', 'Post Two')->get();
+
+        //  Example for using DB instead of Eloquent.
+        //$posts = DB:select('SELECT * FROM posts');
+
+        //  Fetch only the most recent post (one!).
+        //$posts = Post::orderBy('created_at', 'desc')->take(1)->get();
+
+
+        //  Fetch all posts, order by creation date/time in descending order. (recent post first)
+        $posts = Post::orderBy('created_at', 'desc')->get();
+        
+        //  Load view with the fetched posts
+        return view('posts.index')->with('posts', $posts);
     }
 
     /**
@@ -45,7 +66,8 @@ class PostsController extends Controller
      */
     public function show($id)
     {
-        //
+        $post = Post::find($id);
+        return view('posts.show')->with('post', $post);
     }
 
     /**
