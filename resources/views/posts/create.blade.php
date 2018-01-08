@@ -10,7 +10,7 @@
 
         <div class="form-group">
             {{Form::label('body', 'Body')}}
-            {{Form::textarea('body', '', ['class' => 'form-control', 'placeholder' => 'Body Text'])}}
+            {{Form::textarea('body', '', ['id' => 'article-ckeditor', 'class' => 'form-control', 'placeholder' => 'Body Text'])}}
 
         </div>
         {{Form::submit('Submit', ['class' => 'btn btn-primary'])}}

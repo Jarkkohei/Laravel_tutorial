@@ -5,7 +5,8 @@
     <h1>{{$post->title}}</h1>
     
     <div>   
-        {{$post->body}}
+        <!-- two exclamation marks instead of curlybraces because ckeditor html parsing -->
+        {!!$post->body!!}
     </div>
 
     <hr>
