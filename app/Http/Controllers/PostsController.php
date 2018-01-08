@@ -31,7 +31,11 @@ class PostsController extends Controller
 
 
         //  Fetch all posts, order by creation date/time in descending order. (recent post first)
-        $posts = Post::orderBy('created_at', 'desc')->get();
+        //$posts = Post::orderBy('created_at', 'desc')->get();
+
+
+        //  Paginate the results, one / page.
+        $posts = Post::orderBy('created_at', 'desc')->paginate(10);
         
         //  Load view with the fetched posts
         return view('posts.index')->with('posts', $posts);
