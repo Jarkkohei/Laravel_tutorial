@@ -14,6 +14,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
+        //  Defines that this page requires user to be authenticated.
         $this->middleware('auth');
     }
 
