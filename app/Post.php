@@ -14,4 +14,9 @@ class Post extends Model
 
     //  Timestamps (true by default)
     public $timestamps = true;
+
+    //  Tie Post-model to User-model so that Post has a owner (user).
+    public function user() {
+        return $this->belongsTo('App\User');
+    }
 }
