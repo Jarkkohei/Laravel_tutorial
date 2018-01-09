@@ -3,7 +3,9 @@
 @section('content')
     <a href="/posts" class="btn btn-default">Go Back</a>
     <h1>{{$post->title}}</h1>
-    
+
+    <img style="width: 100%" src="/storage/cover_images/{{$post->cover_image}}">
+    <br><br>
     <div>   
         <!-- two exclamation marks instead of curlybraces because ckeditor html parsing -->
         {!!$post->body!!}
